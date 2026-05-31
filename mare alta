@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grêmio Estudantil Maré Alta</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#eef8ff,#d7ecff);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* CABEÇALHO */
+
+header{
+background:rgba(255,255,255,.95);
+padding:30px;
+position:relative;
+text-align:center;
+border-bottom:5px solid #2c7be5;
+overflow:hidden;
+}
+
+/* CARPAS DO TOPO */
+
+header::before{
+content:"";
+position:absolute;
+left:30px;
+top:10px;
+width:230px;
+height:230px;
+background:url("carpas.png");
+background-size:contain;
+background-repeat:no-repeat;
+opacity:.9;
+}
+
+header::after{
+content:"";
+position:absolute;
+right:30px;
+top:10px;
+width:230px;
+height:230px;
+background:url("carpas.png");
+background-size:contain;
+background-repeat:no-repeat;
+transform:scaleX(-1);
+opacity:.9;
+}
+
+.logo{
+position:relative;
+z-index:5;
+}
+
+.logo h1{
+font-size:80px;
+color:#0b3b91;
+font-family:cursive;
+}
+
+.logo p{
+font-size:28px;
+color:#347dff;
+margin-top:10px;
+}
+
+/* MENU */
+
+nav{
+background:#001f5c;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+nav button{
+background:none;
+border:none;
+color:white;
+padding:20px 35px;
+font-size:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+nav button:hover{
+background:#1d4ed8;
+}
+
+/* PÁGINAS */
+
+.pagina{
+display:none;
+padding:25px;
+}
+
+.ativa{
+display:block;
+}
+
+/* PRINCIPAL */
+
+.principal-grid{
+display:grid;
+grid-template-columns:1fr 2fr 1fr;
+gap:20px;
+}
+
+/* CARDS */
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+border:2px solid #b6dcff;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* TITULOS */
+
+.card h2{
+color:#0b3b91;
+margin-bottom:15px;
+}
+
+/* INTEGRANTES */
+
+.mini-integrantes{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.integrante{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+background:#f6fbff;
+border:1px solid #dbeeff;
+}
+
+.integrante:hover{
+background:#eaf5ff;
+transform:translateY(-3px);
+}
+
+.foto{
+width:55px;
+height:55px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #5fa8ff;
+}
+
+.biografia{
+display:none;
+margin-top:10px;
+padding:10px;
+background:#f6fbff;
+border-radius:10px;
+font-size:14px;
+}
+
+/* CONTATO */
+
+textarea{
+width:100%;
+height:120px;
+padding:10px;
+border-radius:10px;
+border:1px solid #cbd5e1;
+resize:none;
+}
+
+/* CARPAS DECORATIVAS */
+
+.carpas-fundo-esq{
+position:fixed;
+left:20px;
+bottom:20px;
+width:180px;
+opacity:.18;
+pointer-events:none;
+}
+
+.carpas-fundo-dir{
+position:fixed;
+right:20px;
+bottom:20px;
+width:180px;
+opacity:.18;
+transform:rotate(180deg);
+pointer-events:none;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+.principal-grid{
+grid-template-columns:1fr;
+}
+
+.logo h1{
+font-size:50px;
+}
+
+header::before,
+header::after{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<img src="carpas.png" class="carpas-fundo-esq">
+<img src="carpas.png" class="carpas-fundo-dir">
+
+<header>
+
+<div class="logo">
+
+<h1>Maré Alta</h1>
+
+<p>
+Unidos hoje, líderes amanhã!
+</p>
+
+</div>
+
+</header>
+
+<nav>
+
+<button onclick="mostrar('principal')">
+🏠 Principal
+</button>
+
+<button onclick="mostrar('jornal')">
+📰 Jornal Digital
+</button>
+
+<button onclick="mostrar('podcast')">
+🎙️ Podcast
+</button>
+
+<button onclick="mostrar('talentos')">
+⭐ Talentos
+</button>
+
+</nav>
+
+<!-- PÁGINA PRINCIPAL -->
+
+<div id="principal" class="pagina ativa">
+
+<div class="principal-grid">
+
+<!-- INTEGRANTES -->
+
+<div class="card">
+
+<h2>👥 Integrantes</h2>
+
+<div class="mini-integrantes">
+
+    <div class="integrante" onclick="bio('levy')">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Levy</b><br>
+Presidente
+</div>
+</div>
+
+<div id="levy" class="biografia">
+    mamae♠
+</div>
+
+<div class="integrante" onclick="bio('Heloísa')">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Heloísa</b><br>
+Vice-presidente
+</div>
+</div>
+
+<div id="Heloísa" class="biografia">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa diva.
+</div>
+
+
+
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Aryel</b><br>
+1° Secretário
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Ana Luiza</b><br>
+2° Secretária
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Sarah</b><br>
+1° Tesoureira
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Pedro</b><br>
+2° Tesoureiro
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Letícia</b><br>
+Diretora Sociocultural
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Júlia</b><br>
+Diretora Sociocultural
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Emily</b><br>
+Diretora de Imprensa
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Janderson</b><br>
+Vice-diretor de Imprensa
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Gustavo</b><br>
+Diretor de Esportes
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Gabrielly</b><br>
+Tecnologia e Inovação
+</div>
+</div>
+
+<div class="integrante">
+<img src="https://via.placeholder.com/55" class="foto">
+<div>
+<b>Higor</b><br>
+Combate à Violência
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- O QUE É O GRÊMIO -->
+
+<div class="card">
+
+<h2>🌊 O que é o Grêmio Estudantil?</h2>
+
+<p>
+O Grêmio Estudantil Maré Alta é a voz dos alunos.
+Representamos os estudantes, promovemos projetos,
+eventos, esportes, cultura e inovação dentro da escola.
+</p>
+
+<br>
+
+<p>
+Nosso objetivo é ouvir os alunos,
+defender suas ideias e transformar a escola em um lugar
+cada vez melhor para todos.
+</p>
+
+<br>
+
+<h2>⭐ Nossas Funções</h2>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Representar os estudantes.</li>
+<li>Organizar eventos escolares.</li>
+<li>Promover cultura e esportes.</li>
+<li>Incentivar tecnologia e inovação.</li>
+<li>Combater a violência escolar.</li>
+<li>Dar voz aos alunos.</li>
+</ul>
+
+</div>
+
+<!-- CONTATO -->
+
+<div class="card">
+
+<h2>📢 Fale Conosco</h2>
+
+<p>
+Entre em contato com o Grêmio Maré Alta.
+</p>
+
+<br>
+
+<p>
+📸 Instagram: @marealta
+</p>
+
+<br>
+
+<p>
+📧 Email: gremiomarealta@gmail.com
+</p>
+
+<br>
+
+<p>
+🏫 Sala do Grêmio
+</p>
+
+<br>
+
+<textarea placeholder="Escreva sua sugestão..."></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- JORNAL -->
+
+<div id="jornal" class="pagina">
+
+<div class="card">
+
+<h2>📰 Jornal Digital</h2>
+
+<p>
+Aqui você poderá publicar notícias,
+avisos e novidades da escola.
+</p>
+
+<br>
+
+<h3>Exemplo de notícia</h3>
+
+<p>
+panela a 10 reais
+</p>
+
+</div>
+
+</div>
+
+<!-- PODCAST -->
+
+<div id="podcast" class="pagina">
+
+<div class="card">
+
+<h2>🎙️ Podcast Maré Alta</h2>
+
+<p>
+Aqui serão publicados os vídeos do podcast.
+</p>
+
+<br>
+
+<iframe
+width="100%"
+height="450"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+<!-- TALENTOS -->
+
+<div id="talentos" class="pagina">
+
+<div class="card">
+
+<h2>⭐ Talentos dos Alunos</h2>
+
+<p>
+Espaço para divulgar músicas,
+desenhos, esportes, dança e outros talentos.
+</p>
+
+<br>
+
+<img
+src="https://via.placeholder.com/700x300"
+style="
+width:100%;
+border-radius:15px;
+">
+
+</div>
+
+</div>
+
+<footer>
+
+🌊 Grêmio Estudantil Maré Alta 🌊
+
+<br><br>
+
+Unidos hoje, líderes amanhã!
+
+</footer>
+
+<script>
+
+function mostrar(id){
+
+document.querySelectorAll('.pagina')
+.forEach(p=>{
+p.classList.remove('ativa');
+});
+
+document.getElementById(id)
+.classList.add('ativa');
+
+}
+
+function bio(id){
+
+let b=document.getElementById(id);
+
+if(b.style.display==="block"){
+b.style.display="none";
+}else{
+b.style.display="block";
+}
+
+}
+
+</script>
+
+</body>
+</html>
